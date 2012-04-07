@@ -81,7 +81,7 @@ public class DeviceInfoSettings extends PreferenceActivity {
         setStringSummary("device_model", Build.MODEL);
         setStringSummary("build_number", Build.DISPLAY);
         findPreference("kernel_version").setSummary(getFormattedKernelVersion());
-        setValueSummary("mod_version", "ro.modversion");
+        setValueSummary("mod_version", "ro.cm.version");
         findPreference("mod_version").setEnabled(true);
         setValueSummary("build_date", "ro.build.date");
 
