@@ -1552,9 +1552,6 @@
     <!-- zRam -->
     <string name="pref_zram_title">zRam</string>
     <string name="pref_zram_summary">Compress memory for increased virtual capacity (requires reboot)</string>
-    <!-- VM Heap Size -->
-    <string name="pref_heapsize_title">VM heap size</string>
-    <string name="pref_heapsize_summary">Maximum amount of memory per VM heap (requires reboot)</string>
     <!-- KSM -->
     <string name="pref_ksm_title">Kernel samepage merging</string>
     <string name="pref_ksm_summary">KSM reduces physical memory requirements and improves performance</string>
@@ -3603,6 +3600,9 @@ found in the list of installed apps.</string>
     <string name="tts_play_example_title">Listen to an example</string>
     <!-- On main TTS Settings screen, summary for triggering playback of an example of speech synthesis -->
     <string name="tts_play_example_summary">Play a short demonstration of speech synthesis</string>
+    <!-- On main TTS Settings screen, not found sample text message when triggers playback of an example of speech synthesis -->
+    <string name="tts_play_example_not_found_title">Warning</string>
+    <string name="tts_play_example_not_found_msg">A text string sample wasn\'t found for the requested language</string>
     <!-- On main TTS Settings screen, click to install required speech synthesis data -->
     <string name="tts_install_data_title">Install voice data</string>
     <!-- On main TTS Settings screen, summary for click to install required speech synthesis data -->
@@ -4301,4 +4301,10 @@ found in the list of installed apps.</string>
     <string name="pref_volume_wake_title">Volume rocker wake</string>
     <string name="pref_volume_wake_summary">Pressing the volume rocker up/down will wake the device</string>
 
+    <string name="profile_write_nfc_tag">Write to NFC tag</string>
+    <string name="profile_write_touch_tag">Touch tag to write</string>
+    <string name="profile_write_success">Tag successfully written</string>
+    <string name="profile_write_failed">Tag writing failed!</string>
+    <string name="profile_selected">Profile selected: %1$s</string>
+    <string name="profile_nfc_text">Writing a profile to an NFC tag allows you to tap the tag to select that profile. Tapping a second time will select the previously selected profile.</string>
 </resources>
