@@ -531,7 +531,7 @@
     <string name="baseband_version" msgid="1848990160763524801">"Smalbandversie"</string>
     <string name="kernel_version" msgid="9192574954196167602">"Kernelversie"</string>
     <string name="build_number" msgid="3075795840572241758">"Buildnummer"</string>
-    <string name="mod_version">Modversie</string>
+    <string name="mod_version">CyanogenModversie</string>
     <string name="mod_version_default">Onbekend</string>
     <string name="build_date">Builddatum</string>
     <string name="device_info_not_available" msgid="8062521887156825182">"Niet beschikbaar"</string>

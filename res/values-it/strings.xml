@@ -559,7 +559,7 @@
     <string name="kernel_version" msgid="9192574954196167602">"Versione kernel"</string>
     <string name="build_number" msgid="3075795840572241758">"Numero build"</string>
     <!-- About phone screen,  setting option name-->
-    <string name="mod_version">Versione Mod</string>
+    <string name="mod_version">Versione CyanogenMod</string>
     <string name="mod_version_default">Sconosciuta</string>
     <string name="device_info_not_available" msgid="8062521887156825182">"Non disponibile"</string>
     <string name="device_status_activity_title" msgid="1411201799384697904">"Stato"</string>

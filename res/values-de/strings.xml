@@ -543,7 +543,7 @@
     <string name="baseband_version" msgid="1848990160763524801">"Baseband-Version"</string>
     <string name="kernel_version" msgid="9192574954196167602">"Kernel-Version"</string>
     <string name="build_number" msgid="3075795840572241758">"Build-Nummer"</string>
-    <string name="mod_version">Mod-Version</string>
+    <string name="mod_version">CyanogenMod-Version</string>
     <string name="mod_version_default">Unbekannt</string>
     <string name="build_date">Build-Datum</string>
     <string name="device_info_not_available" msgid="8062521887156825182">"Nicht verfügbar"</string>

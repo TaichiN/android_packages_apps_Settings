@@ -1178,7 +1178,7 @@
     <string name="sound_category_notification_title" msgid="3502115998790286943">"通知"</string>
     <string name="sound_category_feedback_title" msgid="4399742321363475393">"フィードバック"</string>
     <!-- Added for CM -->
-    <string name="mod_version">"Modバージョン"</string>
+    <string name="mod_version">"CyanogenModバージョン"</string>
     <string name="mod_version_default">"不明"</string>
     <string name="build_date">ビルド日付</string>
     <string name="cm_settings_title">CyanogenMod設定</string>
