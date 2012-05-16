@@ -286,26 +286,6 @@
     <!-- Hint text for network prefix length -->
     <string name="wifi_network_prefix_length_hint" translatable="false">24</string>
 
-    <!-- Wi-Fi p2p / Wi-Fi Direct settings -->
-    <!-- Used in the 1st-level settings screen to launch Wi-fi Direct settings [CHAR LIMIT=25] -->
-    <string name="wifi_p2p_settings_title">Wi-Fi direct</string>
-    <!-- Summary for Wi-fi Direct settings item in the 1st-level settings screen [CHAR LIMIT=50]-->
-    <string name="wifi_p2p_settings_summary">Set up peer-to-peer connectivity</string>
-    <string name="wifi_p2p_device_info">Device information</string>
-    <string name="wifi_p2p_wps_setup">Wi-Fi protected setup</string>
-    <string name="wifi_p2p_wps_pin">Type PIN</string>
-    <string name="wifi_p2p_persist_network">Remember this connection</string>
-    <!-- Menu option to discover peers-->
-    <string name="wifi_p2p_menu_search">Search</string>
-    <!-- Menu option to create a group-->
-    <string name="wifi_p2p_menu_create_group">Create group</string>
-    <!-- Menu option to remove a group-->
-    <string name="wifi_p2p_menu_remove_group">Remove group</string>
-    <!-- Menu option to Wi-Fi p2p advanced settings -->
-    <string name="wifi_p2p_menu_advanced">Advanced</string>
-    <!-- Title for available p2p devices -->
-    <string name="wifi_p2p_available_devices">Available devices</string>
-
     <!-- Wifi AP settings-->
     <!-- Label for wifi tether checkbox. Toggles Access Point on/off -->
     <string name="wifi_tether_checkbox_text">Portable Wi-Fi hotspot</string>
@@ -797,10 +777,13 @@
     <string name="notification_pulse_title">Notification light</string>
     <string name="notification_light_general_title">General</string>
     <string name="notification_light_applist_title">Applications</string>
-    <string name="notification_light_default_value">Default</string>
+    <string name="notification_light_phonelist_title">Phone</string>
     <string name="notification_light_use_custom">Use custom values</string>
     <string name="notification_light_enabled">Enabled</string>
     <string name="notification_light_disabled">Disabled</string>
+    <string name="notification_light_default_value">Default</string>
+    <string name="notification_light_missed_call_title">Missed call</string>
+    <string name="notification_light_voicemail_title">Voicemail</string>
 
     <!-- Notification light dialogs -->
     <string name="edit_light_settings">Edit light settings</string>
@@ -2126,6 +2109,26 @@
     <!-- Radio Info screen. Label for a status item. Used for diagnostic info screens, precise translation isn't needed -->
     <string name="radio_info_data_attempts_label">Data attempts:</string>
     <!-- Radio Info screen. Label for a status item. Used for diagnostic info screens, precise translation isn't needed -->
+
+    <!-- Wi-Fi p2p / Wi-Fi Direct settings -->
+    <!-- Used in the 1st-level settings screen to launch Wi-fi Direct settings [CHAR LIMIT=25] -->
+    <string name="wifi_p2p_settings_title">Wi-Fi direct</string>
+    <!-- Summary for Wi-fi Direct settings item in the 1st-level settings screen [CHAR LIMIT=50]-->
+    <string name="wifi_p2p_settings_summary">Set up peer-to-peer connectivity</string>
+    <string name="wifi_p2p_device_info">Device information</string>
+    <string name="wifi_p2p_wps_setup">Wi-Fi protected setup</string>
+    <string name="wifi_p2p_wps_pin">Type PIN</string>
+    <string name="wifi_p2p_persist_network">Remember this connection</string>
+    <!-- Menu option to discover peers-->
+    <string name="wifi_p2p_menu_search">Search</string>
+    <!-- Menu option to create a group-->
+    <string name="wifi_p2p_menu_create_group">Create group</string>
+    <!-- Menu option to remove a group-->
+    <string name="wifi_p2p_menu_remove_group">Remove group</string>
+    <!-- Title for available p2p devices -->
+    <string name="wifi_p2p_available_devices">Available devices</string>
+    <string name="wifi_p2p_on_summary">Turn on wifi direct</string>
+    <string name="wifi_p2p_settings">Wifi direct settings</string>
 
     <string name="radio_info_gprs_service_label">GPRS service:</string>
     <!-- Radio Info screen. Label for a status item. Used for diagnostic info screens, precise translation isn't needed -->
@@ -4104,6 +4107,8 @@ found in the list of installed apps.</string>
     <string name="data_usage_menu_show_wifi">Show Wi-Fi usage</string>
     <!-- Title for checkbox menu option to show Ethernet data usage. [CHAR LIMIT=32] -->
     <string name="data_usage_menu_show_ethernet">Show Ethernet usage</string>
+    <!-- Title for checkbox menu option to enable linear chart. [CHAR LIMIT=32] -->
+    <string name="data_usage_menu_linear_chart">Linear chart</string>
     <!-- Title for option to change data usage cycle day. [CHAR LIMIT=32] -->
     <string name="data_usage_change_cycle">Change cycle\u2026</string>
     <!-- Body of dialog prompting user to change numerical day of month that data usage cycle should reset. [CHAR LIMIT=64] -->
