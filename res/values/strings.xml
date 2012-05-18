@@ -831,12 +831,6 @@
     <string name="system_settings_title">System</string>
     <string name="system_interface_title">System interface</string>
     
-    <!-- Notification Drawer #CM -->
-    <string name="notification_drawer_title">Notification drawer</string>
-    <string name="carrier_text">Custom Carrier Text</string>
-    <string name="carrier_text_summary">Change the carrier text in notification pulldown. Reboot required.</string>
-    <string name="carrier_text_message">Change carrier text to:</string>
-
     <!-- Combined Bar #CM -->
     <string name="combined_bar_title">Combined bar</string>
     <string name="combined_bar_auto_hide_title">Auto hide</string>
@@ -928,8 +922,10 @@
     <string name="status_bar_signal_text_show_bars">Icon (default)</string>
     <string name="status_bar_signal_text_show_text">Text</string>
     <string name="status_bar_signal_text_hidden">Hidden</string>
-
-    <string name="lock_screen_title">Lock screen</string>
+    <string name="status_bar_lock_screen_title">Lock screen</string>
+    <string name="status_bar_carrier_text_title">Custom Carrier Text</string>
+    <string name="status_bar_carrier_text_summary">Change the carrier text (requires reboot)</string>
+    <string name="status_bar_carrier_text_message">Change carrier text to:</string>
 
     <!-- Lock Screen Shortcuts -->
     <string name="lockscreen_target_info">Drag the slider to targets to assign shortcuts</string>
