@@ -33,6 +33,10 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.text.Spannable;
+import android.widget.EditText
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,6 +68,10 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
     private static final String UI_EXP_WIDGET_ORDER = "widget_order";
 
+    private static final String CARRIER_TEXT = "custom_carrier_text";
+
+    private static final String MODIFY_CARRIER_TEXT = "notification_drawer_carrier_text";
+
     private CheckBoxPreference mPowerWidget;
 
     private CheckBoxPreference mPowerWidgetHideOnChange;
@@ -77,6 +85,12 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     private PreferenceScreen mPowerPicker;
 
     private PreferenceScreen mPowerOrder;
+
+    private CheckBoxPreference mNotificationCarrierText;
+
+    private Preference mCarrier;
+
+    String mCarrierText = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,6 +130,20 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             mPowerWidgetHapticFeedback.setValue(Integer.toString(Settings.System.getInt(
                     getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HAPTIC_FEEDBACK, 2)));
+
+            mNotificationCarrierText = (CheckBoxPreference) prefSet.findPreference(MODIFY_CARRIER_TEXT);
+
+            mCarrier = (Preference) prefSet.findPreference(CARRIER_TEXT);
+            updateCarrierText();
+        }
+    }
+
+    private void updateCarrierText() {
+        mCarrierText = Settings.System.getString(getContentResolver(), Settings.System.CUSTOM_CARRIER_TEXT);
+        if (mCarrierText == null || mCarrierText == "") {
+            mCarrier.setSummary(" ");
+        } else {
+            mCarrier.setSummary(mCarrierText);
         }
     }
 
@@ -152,6 +180,30 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HIDE_INDICATOR,
                     value ? 1 : 0);
+
+        } else if (preference == mNotificationCarrierText) {
+            value = mNotificationCarrierText.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(), Settings.System.MODIFY_CARRIER_TEXT, value ? 1 : 0);
+            return true;
+        } else if (preference == mCarrier) {
+            AlertDialog.Builder ad = new AlertDialog.Builder(getActivity());
+            ad.setTitle(R.string.notification_drawer_carrier_text);
+            ad.setMessage(R.string.notification_drawer_carrier_text_message);
+            final EditText text = new EditText(getActivity());
+            ad.setView(text);
+            ad.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    String value = ((Spannable) text.getText()).toString();
+                    Settings.System.putString(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_TEXT, value);
+                    updateCarrierText();
+                }
+            });
+            ad.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton){
+                    mNotificationCarrierText.setChecked(false);
+                }
+            });
+            ad.show();
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);

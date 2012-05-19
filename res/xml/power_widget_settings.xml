@@ -71,4 +71,20 @@
 
     </PreferenceCategory>
 
+    <!-- Notification drawer Custom carrier text -->
+    <PreferenceCategory
+       android:title="@string/notification_drawer_carrier_text">
+
+        <CheckBoxPreference
+            android:key="notification_drawer_carrier_text"
+            android:title="@string/notification_drawer_carrier_text"
+            android:summary="@string/notification_drawer_carrier_text_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="custom_carrier_text"
+            android:title="@string/notification_drawer_carrier_text" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
