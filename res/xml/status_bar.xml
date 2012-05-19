@@ -72,19 +72,4 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/status_bar_carrier_text_title">
-
-       <CheckBoxPreference
-            android:key="status_bar_carrier_text"
-            android:title="@string/status_bar_carrier_text_title"
-            android:summary="@string/status_bar_carrier_text_summary"
-            android:defaultValue="false" />
-
-       <Preference
-            android:key="custom_carrier_text"
-            android:title="@string/status_bar_carrier_text_title" />
-
-    </PreferenceCategory>
-
 </PreferenceScreen>

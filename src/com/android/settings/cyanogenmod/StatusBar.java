@@ -47,10 +47,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
 
-    private static final String CARRIER_TEXT = "custom_carrier_text";
-
-    private static final String MODIFY_CARRIER_TEXT = "status_bar_carrier_text";
-
     private ListPreference mStatusBarAmPm;
 
     private ListPreference mStatusBarBattery;
@@ -63,13 +59,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private CheckBoxPreference mCombinedBarAutoHide;
 
-    private CheckBoxPreference mStatusBarCarrierText;
-
     private PreferenceCategory mPrefCategoryGeneral;
-
-    private Preference mCarrier;
-
-    String mCarrierText = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,7 +74,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM);
         mStatusBarBattery = (ListPreference) prefSet.findPreference(STATUS_BAR_BATTERY);
         mCombinedBarAutoHide = (CheckBoxPreference) prefSet.findPreference(COMBINED_BAR_AUTO_HIDE);
-        mStatusBarCarrierText = (CheckBoxPreference) prefSet.findPreference(MODIFY_CARRIER_TEXT);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
 
         mStatusBarClock.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -118,9 +107,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         mCombinedBarAutoHide.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.COMBINED_BAR_AUTO_HIDE, 0) == 1));
-
-        mCarrier = (Preference) prefSet.findPreference(PREF_CARRIER_TEXT);
-        updateCarrierText();
 
         mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
 
@@ -170,39 +156,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.COMBINED_BAR_AUTO_HIDE, value ? 1 : 0);
             return true;
-        } else if (preference == mStatusBarCarrierText) {
-            value = mStatusBarCarrierText.isChecked();
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(), Settings.System.MODIFY_CARRIER_TEXT, value ? 1 : 0);
-            return true;
-        } else if (preference == mCarrier) {
-            AlertDialog.Builder ad = new AlertDialog.Builder(getActivity());
-            ad.setTitle(R.string.carrier_text);
-            ad.setMessage(R.string.carrier_text_message);
-            final EditText text = new EditText(getActivity());
-            ad.setView(text);
-            ad.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int whichButton) {
-                    String value = ((Spannable) text.getText()).toString();
-                    Settings.System.putString(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_TEXT, value);
-                    updateCarrierText();
-                }
-            });
-            ad.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int whichButton){
-                    mStatusBarCarrierText.setChecked(false);
-                }
-            });
-            ad.show();
         }
         return false;
-    }
-
-    private void updateCarrierText() {
-        mCarrierText = Settings.System.getString(getContentResolver(), Settings.System.CUSTOM_CARRIER_TEXT);
-        if (mCarrierText == null || mCarrierText == "") {
-            mCarrier.setSummary(" ");
-        } else {
-            mCarrier.setSummary(mCarrierText);
-        }
     }
 }
