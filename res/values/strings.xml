@@ -830,10 +830,7 @@
     <!-- System Interface settings #CM -->
     <string name="system_settings_title">System</string>
     <string name="system_interface_title">System interface</string>
-
-    <!-- Notification Drawer #CM -->
-    <string name="notification_drawer_title">Notification drawer</string>
-
+    
     <!-- Combined Bar #CM -->
     <string name="combined_bar_title">Combined bar</string>
     <string name="combined_bar_auto_hide_title">Auto hide</string>
