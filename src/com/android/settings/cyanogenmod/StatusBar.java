@@ -25,6 +25,10 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.text.Spannable;
+import android.widget.EditText;
 import android.util.Log;
 
 import com.android.settings.R;
@@ -119,7 +123,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mCombinedBarAutoHide.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.COMBINED_BAR_AUTO_HIDE, 0) == 1));
 
-        mCarrier = (Preference) prefSet.findPreference(PREF_CARRIER_TEXT);
+        mCarrier = (Preference) prefSet.findPreference(CARRIER_TEXT);
         updateCarrierText();
 
         mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
@@ -176,8 +180,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             return true;
         } else if (preference == mCarrier) {
             AlertDialog.Builder ad = new AlertDialog.Builder(getActivity());
-            ad.setTitle(R.string.carrier_text);
-            ad.setMessage(R.string.carrier_text_message);
+            ad.setTitle(R.string.status_bar_carrier_text_title);
+            ad.setMessage(R.string.status_bar_carrier_text_message);
             final EditText text = new EditText(getActivity());
             ad.setView(text);
             ad.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
