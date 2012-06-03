@@ -1143,7 +1143,9 @@
     <!-- Text shown for title of owner info setting [CHAR LIMIT=20]-->
     <string name="owner_info_settings_title">Owner info</string>
     <!-- Text shown for summary of owner info setting [CHAR LIMIT=40]-->
-    <string name="owner_info_settings_summary"></string>
+    <string name="owner_info_settings_summary">Display owner information on lock screen</string>
+    <!-- Text shown for enabed owner info setting [CHAR LIMIT=40]-->
+    <string name="owner_info_settings_enabled">Enabled</string>
     <!-- Hint text shown in owner info edit text [CHAR LIMIT=50] -->
     <string name="owner_info_settings_edit_text_hint">Type text to display on the lock screen</string>
     <!-- Main Settings screen setting option title for the item to take you to the location screen -->
@@ -3260,6 +3262,9 @@ found in the list of installed apps.</string>
     <string name="pointer_settings_category">Mouse/trackpad</string>
     <!-- On Language & input settings screen, setting summary. Setting for mouse pointer speed. [CHAR LIMIT=35] -->
     <string name="pointer_speed">Pointer speed</string>
+    <!-- Whether to display IME switcher notifcation -->
+    <string name="ime_switcher_notify">Selector notification</string>
+    <string name="ime_switcher_notify_summary">Display input method selector notification</string>
 
     <!-- User dictionary settings --><skip />
     <!-- User dictionary settings, The titlebar text of the User dictionary settings screen. -->
@@ -4444,6 +4449,11 @@ found in the list of installed apps.</string>
     from their cell phone carrier. The use of the string is similar to the string
     "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
+
+    <!-- Electron Beam -->
+    <string name="display_category_animation_options_title">Animation</string>
+    <string name="display_electron_beam_animation_on_title">Screen-on animation</string>
+    <string name="display_electron_beam_animation_off_title">Screen-off animation</string>
 
     <!-- Wakeup options -->
     <string name="display_category_wakeup_options_title">Wakeup options</string>
