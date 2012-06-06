@@ -1461,4 +1461,12 @@
     <string name="increasing_ring_interval_3seconds">3 δευτερόλεπτα</string>
     <string name="increasing_ring_interval_5seconds">5 δευτερόλεπτα</string>
     <string name="increasing_ring_interval_10seconds">10 δευτερόλεπτα</string>
+
+    <!-- Style for pattern lockscreen rings -->
+    <string name="pref_pattern_style_title">Στυλ μοτίβου</string>
+    <string name="pref_pattern_style_summary">Επιλέξτε το στυλ της οθόνης κλειδώματος με μοτίβο</string>
+    <string name="ringlock_style_entry_dots">Προεπιλεγμένο στυλ</string>
+    <string name="ringlock_style_entry_revamped">Ανανεωμένο στυλ</string>
+    <string name="ringlock_style_entry_holo">Στυλ Holo</string>
+    <string name="ringlock_style_entry_blade">Στυλ Blade</string>
 </resources>

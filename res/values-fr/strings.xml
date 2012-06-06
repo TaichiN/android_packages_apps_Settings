@@ -1479,4 +1479,12 @@
 
     <!-- Unlock finger settings screen, change unlock finger screen countdown hint on bottom of screen when the screen is locked out -->
     <string name="lockfinger_lockout_countdown_footer">Réessayez dans %d secondes.</string>
+
+    <!-- Style for pattern lockscreen rings -->
+    <string name="pref_pattern_style_title">Style du lockscreen</string>
+    <string name="pref_pattern_style_summary">Choisir le style des anneaux</string>
+    <string name="ringlock_style_entry_dots">Style par défaut</string>
+    <string name="ringlock_style_entry_revamped">Style Revamped</string>
+    <string name="ringlock_style_entry_holo">Style Holo</string>
+    <string name="ringlock_style_entry_blade">Style Blade</string>
 </resources>
