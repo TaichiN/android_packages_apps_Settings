@@ -1191,7 +1191,7 @@
     <string name="date_time_auto_summaryOff">Gegevens handmatig instellen</string>
     <string name="cpu_info">Processor</string>
     <string name="mem_info">Geheugen (besch./tot.)</string>
-    <string name="mod_version">Mod-versie</string>
+    <string name="mod_version">CyanogenMod-versie</string>
     <string name="mod_version_default">Onbekend</string>
     <string name="build_date">Build-datum</string>
     <string name="location_gps_source_title">GPS-apparaat</string>
