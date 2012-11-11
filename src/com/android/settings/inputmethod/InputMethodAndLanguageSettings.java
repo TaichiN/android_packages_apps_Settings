@@ -621,6 +621,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
 
     // returns whether the device has volume rocker or not
     private boolean hasVolumeRocker() {
-        return getResources().getBoolean(com.android.internal.R.bool.config_volumeKeyCursorCtrl);
+        return getResources().getBoolean(R.bool.config_show_volumeKeyCursorCtrl);
     }
 }
