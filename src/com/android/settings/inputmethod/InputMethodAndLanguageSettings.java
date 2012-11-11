@@ -62,7 +62,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private static final String KEY_USER_DICTIONARY_SETTINGS = "key_user_dictionary_settings";
     private static final String KEY_IME_SWITCHER = "status_bar_ime_switcher";
     private static final String KEY_STYLUS_ICON_ENABLED = "stylus_icon_enabled";
-    private static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
+    private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_POINTER_SETTINGS = "pointer_settings_category";
 
     // false: on ICS or later
@@ -195,12 +195,16 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             scp.setFragmentIntent(this, intent);
         }
 
-        mVolumeKeyCursorControl = (ListPreference) findPreference(VOLUME_KEY_CURSOR_CONTROL);
-        if(mVolumeKeyCursorControl != null) {
-            mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
-            mVolumeKeyCursorControl.setValue(Integer.toString(Settings.System.getInt(getActivity()
-                    .getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
-            mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
+        if (!hasVolumeRocker()) {
+            getPreferenceScreen().removePreference(findPreference(KEY_VOLUME_KEY_CURSOR_CONTROL));
+        } else {
+            mVolumeKeyCursorControl = (ListPreference) findPreference(KEY_VOLUME_KEY_CURSOR_CONTROL);
+            if (mVolumeKeyCursorControl != null) {
+                mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
+                mVolumeKeyCursorControl.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                        .getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
+                mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
+            }
         }
 
         mHandler = new Handler();
@@ -213,7 +217,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
                 getPreferenceScreen().removePreference(pc);
             }
         }
-
     }
 
     private void updateInputMethodSelectorSummary(int value) {
@@ -614,5 +617,10 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     // returns whether the device has stylus or not
     private boolean hasStylus() {
         return getResources().getBoolean(com.android.internal.R.bool.config_stylusGestures);
+    }
+
+    // returns whether the device has volume rocker or not
+    private boolean hasVolumeRocker() {
+        return getResources().getBoolean(com.android.internal.R.bool.config_volumeKeyCursorCtrl);
     }
 }
