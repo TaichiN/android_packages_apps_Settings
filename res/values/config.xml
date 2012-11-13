@@ -39,11 +39,6 @@
          very long strings too. -->
     <integer name="maximum_user_dictionary_word_length" translatable="false">48</integer>
 
-    <!-- Volume Rocker Music Controls Support. Some devices does not have volume rocker.
-         Setting to false will disable Volume Rocker Music Controls Support -->
-    <bool name="config_show_volumeRockerMusicCtrl">true</bool>
-
-    <!-- Volume key cursor control support. Some devices does not have volume rocker.
-         Setting to false will disable Volume key cursor control support -->
-    <bool name="config_show_volumeKeyCursorCtrl">true</bool>
+    <!-- Volume rocker support. Some devices does not have volume rocker. -->
+    <bool name="has_volume_rocker">true</bool>
 </resources>

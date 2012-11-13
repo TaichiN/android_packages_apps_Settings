@@ -16,6 +16,8 @@
 
 package com.android.settings;
 
+import com.android.settings.Utils;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -198,11 +200,10 @@ public class SoundSettings extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_SOUNDS_ENABLED, 1) != 0);
 
         mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
-        if (!getResources().getBoolean(R.bool.config_show_volumeRockerMusicCtrl)) {
+        mVolBtnMusicCtrl.setChecked(Settings.System.getInt(resolver,
+                Settings.System.VOLBTN_MUSIC_CONTROLS, 1) != 0);
+        if (!Utils.hasVolumeRocker()) {
             getPreferenceScreen().removePreference(mVolBtnMusicCtrl);
-        } else {
-            mVolBtnMusicCtrl.setChecked(Settings.System.getInt(resolver,
-                    Settings.System.VOLBTN_MUSIC_CONTROLS, 1) != 0);
         }
 
         mRingtonePreference = findPreference(KEY_RINGTONE);

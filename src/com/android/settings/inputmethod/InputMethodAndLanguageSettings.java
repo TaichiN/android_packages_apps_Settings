@@ -195,16 +195,13 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             scp.setFragmentIntent(this, intent);
         }
 
-        if (!hasVolumeRocker()) {
-            getPreferenceScreen().removePreference(findPreference(KEY_VOLUME_KEY_CURSOR_CONTROL));
-        } else {
-            mVolumeKeyCursorControl = (ListPreference) findPreference(KEY_VOLUME_KEY_CURSOR_CONTROL);
-            if (mVolumeKeyCursorControl != null) {
-                mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
-                mVolumeKeyCursorControl.setValue(Integer.toString(Settings.System.getInt(getActivity()
-                        .getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
-                mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
-            }
+        mVolumeKeyCursorControl = (ListPreference) findPreference(KEY_VOLUME_KEY_CURSOR_CONTROL);
+        mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
+        mVolumeKeyCursorControl.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
+        mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
+        if (!Utils.hasVolumeRocker()) {
+            getPreferenceScreen().removePreference(mVolumeKeyCursorControl);
         }
 
         mHandler = new Handler();
@@ -617,10 +614,5 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     // returns whether the device has stylus or not
     private boolean hasStylus() {
         return getResources().getBoolean(com.android.internal.R.bool.config_stylusGestures);
-    }
-
-    // returns whether the device has volume rocker or not
-    private boolean hasVolumeRocker() {
-        return getResources().getBoolean(R.bool.config_show_volumeKeyCursorCtrl);
     }
 }
