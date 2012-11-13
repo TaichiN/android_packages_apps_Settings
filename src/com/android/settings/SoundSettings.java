@@ -202,7 +202,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
         mVolBtnMusicCtrl.setChecked(Settings.System.getInt(resolver,
                 Settings.System.VOLBTN_MUSIC_CONTROLS, 1) != 0);
-        if (!Utils.hasVolumeRocker()) {
+        if (!Utils.hasVolumeRocker(getActivity())) {
             getPreferenceScreen().removePreference(mVolBtnMusicCtrl);
         }
 

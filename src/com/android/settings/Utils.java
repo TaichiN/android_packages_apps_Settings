@@ -529,7 +529,7 @@ public class Utils {
     }
 
     // returns whether the device has volume rocker or not
-    public boolean hasVolumeRocker() {
-        return getResources().getBoolean(R.bool.has_volume_rocker);
+    public static boolean hasVolumeRocker(Context con) {
+        return con.getResources().getBoolean(R.bool.has_volume_rocker);
     }
 }
