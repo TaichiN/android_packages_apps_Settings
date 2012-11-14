@@ -196,7 +196,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         }
 
         mVolumeKeyCursorControl = (ListPreference) findPreference(KEY_VOLUME_KEY_CURSOR_CONTROL);
-        if(mVolumeKeyCursorControl != null && Utils.hasVolumeRocker(getActivity())) {
+        if (mVolumeKeyCursorControl != null && Utils.hasVolumeRocker(getActivity())) {
             mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
             mVolumeKeyCursorControl.setValue(Integer.toString(Settings.System.getInt(getActivity()
                     .getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
