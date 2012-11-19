@@ -58,6 +58,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "PowerWidget";
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
+    private static final String UI_EXP_WIDGET_CATEGORY_BEHAVIOR = "power_widget_behavior";
     private static final String UI_EXP_WIDGET = "expanded_widget";
     private static final String UI_EXP_WIDGET_HIDE_ONCHANGE = "expanded_hide_onchange";
     private static final String UI_EXP_WIDGET_HIDE_SCROLLBAR = "expanded_hide_scrollbar";
@@ -76,6 +77,9 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             addPreferencesFromResource(R.xml.power_widget_settings);
 
             PreferenceScreen prefSet = getPreferenceScreen();
+
+            PreferenceCategory behaviorCategory = (PreferenceCategory) prefSet.findPreference(
+                UI_EXP_WIDGET_CATEGORY_BEHAVIOR);
 
             mPowerWidget = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET);
             mPowerWidgetHideOnChange = (CheckBoxPreference) prefSet
@@ -103,7 +107,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             if (vibrator == null || !vibrator.hasVibrator()) {
-                prefSet.removePreference(mPowerWidgetHapticFeedback);
+                behaviorCategory.removePreference(mPowerWidgetHapticFeedback);
             }
         }
     }

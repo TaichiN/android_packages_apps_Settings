@@ -45,6 +45,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+       android:key="power_widget_behavior"
        android:title="@string/power_widget_behavior">
 
         <CheckBoxPreference
