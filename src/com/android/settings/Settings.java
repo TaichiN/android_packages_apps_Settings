@@ -411,7 +411,7 @@ public class Settings extends PreferenceActivity
                 }
             } else if (id == R.id.bluetooth_settings) {
                 // Remove Bluetooth Settings if Bluetooth service is not available.
-                if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)) {
+                if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH) || !needsBluetoothSettings()) {
                     target.remove(header);
                 }
             } else if (id == R.id.data_usage_settings) {
@@ -517,6 +517,10 @@ public class Settings extends PreferenceActivity
 
     private boolean needsDockSettings() {
         return getResources().getBoolean(R.bool.has_dock_settings);
+    }
+
+    private boolean needsBluetoothSettings() {
+        return getResources().getBoolean(R.bool.has_bluetooth_chip);
     }
 
     private void getMetaData() {

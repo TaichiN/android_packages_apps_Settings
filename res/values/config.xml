@@ -41,4 +41,7 @@
 
     <!-- Volume rocker support. Some devices does not have volume rocker. -->
     <bool name="has_volume_rocker">true</bool>
+
+    <!-- Bluetooth support. Some devices does not have bluetooth chip. -->
+    <bool name="has_bluetooth_chip">true</bool>
 </resources>
