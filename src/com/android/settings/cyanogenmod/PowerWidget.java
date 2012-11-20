@@ -247,6 +247,12 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             ArrayList<String> buttonList = PowerWidgetUtil.getButtonListFromString(PowerWidgetUtil
                     .getCurrentButtons(getActivity().getApplicationContext()));
 
+            // Don't show bluetooth option if not supported
+            boolean isBluetooth = getResources().getBoolean(R.bool.has_bluetooth_chip);
+            if (!isBluetooth) {
+                PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_BLUETOOTH);
+            }
+
             // Don't show WiMAX option if not supported
             boolean isWimaxEnabled = WimaxHelper.isWimaxSupported(getActivity());
             if (!isWimaxEnabled) {
