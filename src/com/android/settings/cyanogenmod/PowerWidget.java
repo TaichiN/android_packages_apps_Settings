@@ -105,8 +105,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                     getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HAPTIC_FEEDBACK, 2)));
 
-            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            if (vibrator == null || !vibrator.hasVibrator()) {
+            if (!isVibratorAvailable(getActivity())) {
                 behaviorCategory.removePreference(mPowerWidgetHapticFeedback);
             }
         }
@@ -169,8 +168,6 @@ public class PowerWidget extends SettingsPreferenceFragment implements
         private static final String EXP_FLASH_MODE = "pref_flash_mode";
 
         private HashMap<CheckBoxPreference, String> mCheckBoxPrefs = new HashMap<CheckBoxPreference, String>();
-
-        private boolean mAutomaticAvailable;
 
         MultiSelectListPreference mBrightnessMode;
         ListPreference mNetworkMode;
@@ -410,16 +407,18 @@ public class PowerWidget extends SettingsPreferenceFragment implements
         private void updateSummary(String val, MultiSelectListPreference pref, int defSummary) {
             // Update summary message with current values
             final String[] values = parseStoredValue(val);
-            mAutomaticAvailable = getResources().getBoolean(
-                    com.android.internal.R.bool.config_automatic_brightness_available);
             if (values != null) {
+                int offset = 0;
                 final int length = values.length;
                 final CharSequence[] entries = pref.getEntries();
                 StringBuilder summary = new StringBuilder();
                 for (int i = 0; i < (length); i++) {
-                    CharSequence entry = entries[mAutomaticAvailable || !pref.getKey().equals(
-                                             EXP_BRIGHTNESS_MODE) ? Integer.parseInt(
-                                             values[i]) : Integer.parseInt(values[i]) - 1];
+                    if (!isAutomaticAvailable(getActivity()) && pref.getKey().equals(EXP_BRIGHTNESS_MODE)) {
+                        offset = 1;
+                    } else if (!isVibratorAvailable(getActivity()) && pref.getKey().equals(EXP_RING_MODE)) {
+                        offset = i == 0 ? 0 : 1; 
+                    }
+                    CharSequence entry = entries[Integer.parseInt(values[i]) - offset];
                     if ((length - i) > 2) {
                         summary.append(entry).append(", ");
                     } else if ((length - i) == 2) {
@@ -441,7 +440,6 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                 return val.toString().split(SEPARATOR);
             }
         }
-
     }
 
     public static class PowerWidgetOrder extends ListFragment
@@ -598,4 +596,16 @@ public class PowerWidget extends SettingsPreferenceFragment implements
         }
     }
 
+    public static boolean isAutomaticAvailable(Context con) {
+        return con.getResources().getBoolean(
+                com.android.internal.R.bool.config_automatic_brightness_available);
+    }
+
+    public static boolean isVibratorAvailable(Context con) {
+        Vibrator vibrator = (Vibrator) con.getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator == null || !vibrator.hasVibrator()) {
+            return false;
+        }
+        return true;
+    }
 }
