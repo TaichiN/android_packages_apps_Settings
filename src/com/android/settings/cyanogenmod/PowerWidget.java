@@ -170,6 +170,8 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
         private HashMap<CheckBoxPreference, String> mCheckBoxPrefs = new HashMap<CheckBoxPreference, String>();
 
+        private boolean mAutomaticAvailable;
+
         MultiSelectListPreference mBrightnessMode;
         ListPreference mNetworkMode;
         ListPreference mScreenTimeoutMode;
@@ -408,12 +410,15 @@ public class PowerWidget extends SettingsPreferenceFragment implements
         private void updateSummary(String val, MultiSelectListPreference pref, int defSummary) {
             // Update summary message with current values
             final String[] values = parseStoredValue(val);
+            mAutomaticAvailable = getResources().getBoolean(
+                    com.android.internal.R.bool.config_automatic_brightness_available);
             if (values != null) {
                 final int length = values.length;
                 final CharSequence[] entries = pref.getEntries();
                 StringBuilder summary = new StringBuilder();
                 for (int i = 0; i < (length); i++) {
-                    CharSequence entry = entries[Integer.parseInt(values[i])];
+                    CharSequence entry = entries[mAutomaticAvailable ? Integer.parseInt(
+                                                 values[i]) : Integer.parseInt(values[i]) - 1];
                     if ((length - i) > 2) {
                         summary.append(entry).append(", ");
                     } else if ((length - i) == 2) {
