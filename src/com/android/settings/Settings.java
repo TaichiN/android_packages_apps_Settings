@@ -520,7 +520,7 @@ public class Settings extends PreferenceActivity
     }
 
     private boolean needsBluetoothSettings() {
-        return getResources().getBoolean(R.bool.has_bluetooth_chip);
+        return getResources().getBoolean(com.android.internal.R.bool.config_deviceHasBluetooth);
     }
 
     private void getMetaData() {

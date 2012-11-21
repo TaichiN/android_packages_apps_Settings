@@ -247,8 +247,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                     .getCurrentButtons(getActivity().getApplicationContext()));
 
             // Don't show bluetooth option if not supported
-            boolean isBluetooth = getResources().getBoolean(R.bool.has_bluetooth_chip);
-            if (!isBluetooth) {
+            if (!isBluetoothAvailable(getActivity())) {
                 PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_BLUETOOTH);
             }
 
@@ -594,6 +593,11 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                 return v;
             }
         }
+    }
+
+    public static boolean isBluetoothAvailable(Context con) {
+        return con.getResources().getBoolean(
+                com.android.internal.R.bool.config_deviceHasBluetooth);
     }
 
     public static boolean isAutomaticAvailable(Context con) {
