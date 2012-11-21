@@ -417,8 +417,9 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                 final CharSequence[] entries = pref.getEntries();
                 StringBuilder summary = new StringBuilder();
                 for (int i = 0; i < (length); i++) {
-                    CharSequence entry = entries[mAutomaticAvailable ? Integer.parseInt(
-                                                 values[i]) : Integer.parseInt(values[i]) - 1];
+                    CharSequence entry = entries[mAutomaticAvailable || !pref.getKey().equals(
+                                             EXP_BRIGHTNESS_MODE) ? Integer.parseInt(
+                                             values[i]) : Integer.parseInt(values[i]) - 1];
                     if ((length - i) > 2) {
                         summary.append(entry).append(", ");
                     } else if ((length - i) == 2) {
