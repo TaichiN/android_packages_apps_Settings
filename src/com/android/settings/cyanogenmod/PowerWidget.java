@@ -407,17 +407,11 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             // Update summary message with current values
             final String[] values = parseStoredValue(val);
             if (values != null) {
-                int offset = 0;
                 final int length = values.length;
                 final CharSequence[] entries = pref.getEntries();
                 StringBuilder summary = new StringBuilder();
                 for (int i = 0; i < (length); i++) {
-                    if (!isAutomaticAvailable(getActivity()) && pref.getKey().equals(EXP_BRIGHTNESS_MODE)) {
-                        offset = 1;
-                    } else if (!isVibratorAvailable(getActivity()) && pref.getKey().equals(EXP_RING_MODE)) {
-                        offset = i == 0 ? 0 : 1; 
-                    }
-                    CharSequence entry = entries[Integer.parseInt(values[i]) - offset];
+                    CharSequence entry = entries[Integer.parseInt(values[i])];
                     if ((length - i) > 2) {
                         summary.append(entry).append(", ");
                     } else if ((length - i) == 2) {
