@@ -21,7 +21,6 @@ import com.android.settings.R;
 
 import android.content.Context;
 import android.net.wimax.WimaxHelper;
-import android.os.Vibrator;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
@@ -134,7 +133,7 @@ public class PowerWidgetUtil {
                 Settings.System.WIDGET_BUTTONS);
         if (buttons == null) {
             buttons = BUTTONS_DEFAULT;
-             // Add the WiMAX button if it's supported
+            // Add the WiMAX button if it's supported
             if (WimaxHelper.isWimaxSupported(context)) {
                 buttons += BUTTON_DELIMITER + BUTTON_WIMAX;
             }
@@ -209,18 +208,5 @@ public class PowerWidgetUtil {
         public String getIcon() {
             return mIcon;
         }
-    }
-
-    public static boolean isBluetoothAvailable(Context con) {
-        return con.getResources().getBoolean(
-                com.android.internal.R.bool.config_deviceHasBluetooth);
-    }
-
-    public static boolean isVibratorAvailable(Context con) {
-        Vibrator vibrator = (Vibrator) con.getSystemService(Context.VIBRATOR_SERVICE);
-        if (vibrator == null || !vibrator.hasVibrator()) {
-            return false;
-        }
-        return true;
     }
 }
