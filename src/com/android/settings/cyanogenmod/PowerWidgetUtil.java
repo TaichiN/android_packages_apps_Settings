@@ -21,6 +21,7 @@ import com.android.settings.R;
 
 import android.content.Context;
 import android.net.wimax.WimaxHelper;
+import android.os.Vibrator;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
@@ -208,5 +209,18 @@ public class PowerWidgetUtil {
         public String getIcon() {
             return mIcon;
         }
+    }
+
+    public static boolean isBluetoothAvailable(Context con) {
+        return con.getResources().getBoolean(
+                com.android.internal.R.bool.config_deviceHasBluetooth);
+    }
+
+    public static boolean isVibratorAvailable(Context con) {
+        Vibrator vibrator = (Vibrator) con.getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator == null || !vibrator.hasVibrator()) {
+            return false;
+        }
+        return true;
     }
 }
