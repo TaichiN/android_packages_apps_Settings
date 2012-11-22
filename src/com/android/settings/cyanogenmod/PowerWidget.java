@@ -32,7 +32,6 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.wimax.WimaxHelper;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
@@ -105,7 +104,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                     getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HAPTIC_FEEDBACK, 2)));
 
-            if (!isVibratorAvailable(getActivity())) {
+            if (!PowerWidgetUtil.isVibratorAvailable(getActivity())) {
                 behaviorCategory.removePreference(mPowerWidgetHapticFeedback);
             }
         }
@@ -247,7 +246,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                     .getCurrentButtons(getActivity().getApplicationContext()));
 
             // Don't show bluetooth option if not supported
-            if (!isBluetoothAvailable(getActivity())) {
+            if (!PowerWidgetUtil.isBluetoothAvailable(getActivity())) {
                 PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_BLUETOOTH);
             }
 
@@ -262,6 +261,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             if (!isMobileData) {
                 PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_MOBILEDATA);
                 PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_NETWORKMODE);
+                PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_WIFIAP);
                 prefButtonsModes.removePreference(mNetworkMode);
             }
 
@@ -587,23 +587,5 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                 return v;
             }
         }
-    }
-
-    public static boolean isBluetoothAvailable(Context con) {
-        return con.getResources().getBoolean(
-                com.android.internal.R.bool.config_deviceHasBluetooth);
-    }
-
-    public static boolean isAutomaticAvailable(Context con) {
-        return con.getResources().getBoolean(
-                com.android.internal.R.bool.config_automatic_brightness_available);
-    }
-
-    public static boolean isVibratorAvailable(Context con) {
-        Vibrator vibrator = (Vibrator) con.getSystemService(Context.VIBRATOR_SERVICE);
-        if (vibrator == null || !vibrator.hasVibrator()) {
-            return false;
-        }
-        return true;
     }
 }
