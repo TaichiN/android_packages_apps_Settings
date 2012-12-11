@@ -3162,4 +3162,9 @@ found in the list of installed applications.</string>
     <string name="ringlock_style_entry_holo">Holo style</string>
     <string name="ringlock_style_entry_blade">Blade style</string>
 
+    <!--- Volume key cursor control -->
+    <string name="volume_key_cursor_control_title">Volume key cursor control</string>
+    <string name="volume_key_cursor_control_off">Disabled</string>
+    <string name="volume_key_cursor_control_on">Volume up/down moves cursor left/right</string>
+    <string name="volume_key_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
 </resources>

@@ -16,6 +16,7 @@
 
 package com.android.settings;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -27,6 +28,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
@@ -41,16 +43,19 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class LanguageSettings extends PreferenceActivity {
+public class LanguageSettings extends PreferenceActivity
+        implements Preference.OnPreferenceChangeListener {
     
     private static final String KEY_PHONE_LANGUAGE = "phone_language";
     private static final String KEY_KEYBOARD_SETTINGS_CATEGORY = "keyboard_settings_category";
     private static final String KEY_HARDKEYBOARD_CATEGORY = "hardkeyboard_category";
+    private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private boolean mHaveHardKeyboard;
 
     private List<InputMethodInfo> mInputMethodProperties;
     private List<CheckBoxPreference> mCheckboxes;
     private Preference mLanguagePref;
+    private ListPreference mVolumeKeyCursorControl;
 
     final TextUtils.SimpleStringSplitter mStringColonSplitter
             = new TextUtils.SimpleStringSplitter(':');
@@ -86,6 +91,14 @@ public class LanguageSettings extends PreferenceActivity {
         }
         mCheckboxes = new ArrayList<CheckBoxPreference>();
         onCreateIMM();
+
+        mVolumeKeyCursorControl = (ListPreference) findPreference(KEY_VOLUME_KEY_CURSOR_CONTROL);
+        if(mVolumeKeyCursorControl != null) {
+            mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
+            mVolumeKeyCursorControl.setValue(Integer.toString(Settings.System.getInt(getContentResolver(),
+                Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
+            mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
+        }
     }
     
     private boolean isSystemIme(InputMethodInfo property) {
@@ -306,6 +319,19 @@ public class LanguageSettings extends PreferenceActivity {
             }
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object value) {
+        if (preference == mVolumeKeyCursorControl) {
+            String volumeKeyCursorControl = (String) value;
+            int val = Integer.parseInt(volumeKeyCursorControl);
+            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, val);
+            int index = mVolumeKeyCursorControl.findIndexOfValue(volumeKeyCursorControl);
+            mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntries()[index]);
+            return true;
+        }
+        return false;
     }
 
     @Override
