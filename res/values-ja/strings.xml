@@ -2012,8 +2012,8 @@
     <string name="hardware_keys_action_voice_search">音声検索</string>
     <string name="hardware_keys_action_in_app_search">アプリ内検索</string>
 
-    <!-- Navigation Bar #CM -->
-    <string name="navigation_bar_title">ナビゲーションバー</string>
+    <!-- Navigation Bar -->
+    <string name="navigation_bar_title">ボタンとレイアウト</string>
     <string name="navigation_bar_help_text">1 - 編集するにはロックアイコンをタップします\n\n2 - 機能の割り当てや変更をするボタンをタップします\n\n3 - 並びを変更するには長押しします\n\n4 - 保存するために再びロックアイコンをタップします\n\n5 - システムのデフォルトに戻すにはリセットボタンをタップします\n\n</string>
     <string name="navigation_bar_tips">&#8226; アクションは一度に一つのボタンにしか割り当てられません\n\n&#8226; ホームボタンは変更できません\n\n&#8226; サイドボタンは並び替えできません</string>
     <string name="navigation_bar_tips_title">クィックチップス</string>
@@ -2623,6 +2623,26 @@
     <!-- Advanced reboot options -->
     <string name="advanced_reboot_title">高度な再起動</string>
     <string name="advanced_reboot_summary">アンロック時の電源メニューにリカバリモードやブートローダへの再起動オプションを追加します。</string>
+
+    <!-- Navigation bar buttons and shortcuts category title -->
+    <string name="navigation_bar_category">ナビゲーションバー</string>
+
+    <!-- Navigation ring shortcuts -->
+    <string name="navigation_ring_title">クイック起動ショートカット</string>
+    <string name="navring_target_reset_message">作成したナビゲーションバーのショートカットを全て削除してデフォルトに戻しますか?</string>
+    <string name="navring_target_reset">ナビゲーションバーショートカットをリセットしました</string>
+    <string name="navring_target_save">ナビゲーションバーショートカットを保存しました</string>
+    <string name="navring_action_open_ime_switcher">入力方法の切り替え</string>
+    <string name="navring_action_kill_app">アプリの強制終了</string>
+    <string name="navring_action_none">なし</string>
+    <string name="navring_action_take_screenshot">スクリーンショットを撮る</string>
+    <string name="navring_action_ring_vibrate">着信音/バイブレーション</string>
+    <string name="navring_action_ring_silent">着信音/サイレント</string>
+    <string name="navring_action_ring_vibrate_silent">着信音/バイブ/サイレント</string>
+    <string name="navring_action_screen_off">スクリーンオフ</string>
+    <string name="navring_action_torch">トーチ</string>
+    <string name="navring_action_google_now">Google Now</string>
+    <string name="navring_choose_action_title">アクションを選択</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
