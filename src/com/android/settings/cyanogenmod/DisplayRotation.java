@@ -28,7 +28,6 @@ import android.provider.Settings;
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 public class DisplayRotation extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
     private static final String TAG = "DisplayRotation";
@@ -91,16 +90,11 @@ public class DisplayRotation extends SettingsPreferenceFragment implements OnPre
         mRotation270Pref.setChecked((mode & ROTATION_270_MODE) != 0);
 
         mSwapVolumeButtons = (CheckBoxPreference) prefSet.findPreference(KEY_SWAP_VOLUME_BUTTONS);
-        if (mSwapVolumeButtons != null) {
-            if (!Utils.hasVolumeRocker(getActivity())) {
-                prefSet.removePreference(mSwapVolumeButtons);
-            } else {
-                int swapVolumeKeys = Settings.System.getInt(getContentResolver(),
-                        Settings.System.SWAP_VOLUME_KEYS_BY_ROTATE, 0);
 
-                mSwapVolumeButtons.setChecked(swapVolumeKeys != 0);
-            }
-        }
+        int swapVolumeKeys = Settings.System.getInt(getContentResolver(),
+                Settings.System.SWAP_VOLUME_KEYS_BY_ROTATE, 0);
+
+        mSwapVolumeButtons.setChecked(swapVolumeKeys != 0);
     }
 
     @Override
