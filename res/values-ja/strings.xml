@@ -2654,15 +2654,15 @@
 
     <!-- Quick/Pie Control #CM -->
     <string name="pie_control_title">パイコントロール</string>
-    <string name="pie_control_enabled">拡張デスクトップが機能しているとき有効にする</string>
+    <string name="pie_control_enabled">拡張デスクトップが機能しているときに有効</string>
     <string name="pie_control_disabled">無効</string>
     <string name="pie_control_search_title">検索ボタンを表示</string>
     <string name="pie_control_size">ナビゲーションキーのサイズ</string>
     <string name="pie_control_trigger_positions">トリガーの位置</string>
-    <string name="pie_control_trigger_left">スクリーン境界の左下</string>
-    <string name="pie_control_trigger_bottom">スクリーン境界の下側</string>
-    <string name="pie_control_trigger_right">スクリーン境界の右下</string>
-    <string name="pie_control_trigger_top">スクリーン境界の上側</string>
+    <string name="pie_control_trigger_left">左側のスクリーン境界</string>
+    <string name="pie_control_trigger_bottom">下側のスクリーン境界</string>
+    <string name="pie_control_trigger_right">右側のスクリーン境界</string>
+    <string name="pie_control_trigger_top">上側のスクリーン境界</string>
     <string name="pie_control_trigger_top_summary">上側ではナビゲーションのみ表示されます</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
