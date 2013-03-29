@@ -2548,6 +2548,7 @@
     <string name="title_tile_screen_timeout">画面のタイムアウト</string>
     <string name="title_tile_usb_tether">USBテザリング</string>
     <string name="title_tile_quiet_hours">サイレントタイム</string>
+    <string name="title_tile_volume">音量</string>
 
     <string name="title_dynamic_tiles">ダイナミックタイル</string>
     <string name="dynamic_tiles_note_title">ノート</string>
@@ -2659,10 +2660,10 @@
     <string name="pie_control_search_title">検索ボタンを表示</string>
     <string name="pie_control_size">ナビゲーションキーのサイズ</string>
     <string name="pie_control_trigger_positions">トリガーの位置</string>
-    <string name="pie_control_trigger_left">左側のスクリーン境界</string>
-    <string name="pie_control_trigger_bottom">下側のスクリーン境界</string>
-    <string name="pie_control_trigger_right">右側のスクリーン境界</string>
-    <string name="pie_control_trigger_top">上側のスクリーン境界</string>
+    <string name="pie_control_trigger_left">スクリーン境界の左側</string>
+    <string name="pie_control_trigger_bottom">スクリーン境界の下側</string>
+    <string name="pie_control_trigger_right">スクリーン境界の右側</string>
+    <string name="pie_control_trigger_top">スクリーン境界の上側</string>
     <string name="pie_control_trigger_top_summary">上側ではナビゲーションのみ表示されます</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
